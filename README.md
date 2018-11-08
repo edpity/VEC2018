@@ -15,3 +15,4 @@ Scrape, collate and compile 2018 Victorian Election Data.
 TODO
 - Build internal comment system
 - Code styleguide
+- Python go where?
