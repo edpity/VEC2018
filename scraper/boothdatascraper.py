@@ -1,10 +1,10 @@
-import os ###Required to change directory
-os.chdir('GitHubLocation/VEC2018/scraper/set-up') ###Set directory
+import os #Required to change directory
+os.chdir('GitHubLocation/VEC2018/scraper/set-up') #Set directory
 import lxml
 from lxml import etree
-import xml.etree.ElementTree as ET ###Will parse xml
-import requests ###Requests will be used for the VEC site, not utilised at this stage
-tree = ET.parse('State2018MediaFilePollingLocations.xml') ###Loads file
+import xml.etree.ElementTree as ET #Will parse xml
+import requests #Requests will be used for the VEC site, not utilised at this stage
+tree = ET.parse('State2018MediaFilePollingLocations.xml') #Loads file
 root = tree.getroot()
 
 
