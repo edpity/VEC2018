@@ -1,5 +1,5 @@
 import os #Required to change directory
-os.chdir('C:/Users/Gullible/Documents/GitHub/VEC2018/scraper/set-up') #Set directory
+os.chdir('GitHubLocation/VEC2018/scraper/set-up') #Set directory
 import lxml
 from lxml import etree
 import xml.etree.ElementTree as ET #Will parse xml
