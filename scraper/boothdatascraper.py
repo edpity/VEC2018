@@ -1,8 +1,9 @@
 import os #Required to change directory
-os.chdir('GitHubLocation/VEC2018/scraper/set-up') #Set directory
+os.chdir('C:/Users/Gullible/Documents/GitHub/VEC2018/scraper/set-up') #Set directory
 import lxml
 from lxml import etree
 import xml.etree.ElementTree as ET #Will parse xml
+import csv #To export
 import requests #Requests will be used for the VEC site, not utilised at this stage
 tree = ET.parse('State2018MediaFilePollingLocations.xml') #Loads file
 root = tree.getroot()
@@ -18,4 +19,9 @@ for PollingDistrict in PollingDistricts: #Required otherwise only the first dist
     PollingPlace = PollingPlaces.find(TagSlug+'PollingPlace') #These two lines are ONLY for navigating the XML file
     for PollingPlace in PollingPlaces: #Required otherwise it would only print the first booth in each electorate
         PPID = PollingPlace.find(TagSlug+'PollingPlaceIdentifier') #Finds both the booth ID and name
-        print(PPID.attrib['Id'], PPID.attrib['Name'], DistrictID.attrib['Id'], Name.text) #Prints the text
+        Data = (PPID.attrib['Id'], PPID.attrib['Name'], DistrictID.attrib['Id'], Name.text)
+        csvfile = 'boothdata.csv'
+        with open (csvfile, 'a', encoding='utf-8') as CandidateData:
+            Print = csv.writer(CandidateData)
+            Print.writerow(Data)
+        #print(PPID.attrib['Id'], PPID.attrib['Name'], DistrictID.attrib['Id'], Name.text) #Prints the text

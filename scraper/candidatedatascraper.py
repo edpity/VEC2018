@@ -3,6 +3,7 @@ os.chdir('GitHubLocation/VEC2018/scraper/set-up') #Set directory - you will need
 import lxml
 from lxml import etree
 import xml.etree.ElementTree as ET #Will parse xml
+import csv #To export
 import requests #Requests will be used for the VEC site, not utilised at this stage
 tree = ET.parse('State2018MediaFileCandidates.xml') #Loads file
 root = tree.getroot() #Sets 'root' as the highest level of the XML file
@@ -28,6 +29,11 @@ for Election in CandidateList.findall(TagSlug+'Election'):
                 Party = AffiliationID.find(TagSlug+'RegisteredName') 
             else:   #This is needed, otherwise the script would break on the first independent
                 Party.text = 'INDEPENDENT'
-            BallotPos = Candidate.find(TagSlug+'BallotPosition')    
-            print(ElectionName.text, ContestID.attrib['Id'], ContestName.text, Enrolment.text, CandidateID.attrib['Id'], CandidateName.text, Party.text, BallotPos.text) #Prints out these values
+            BallotPos = Candidate.find(TagSlug+'BallotPosition')
+            Data = (ElectionName.text, ContestID.attrib['Id'], ContestName.text, Enrolment.text, CandidateID.attrib['Id'], CandidateName.text, Party.text, BallotPos.text)
+            csvfile = 'candidatedata.csv'
+            with open (csvfile, 'a', encoding='utf-8') as CandidateData:
+                Print = csv.writer(CandidateData)
+                Print.writerow(Data)
+                #print(ElectionName.text, ContestID.attrib['Id'], ContestName.text, Enrolment.text, CandidateID.attrib['Id'], CandidateName.text, Party.text, BallotPos.text) #Prints out these values
 
