@@ -8,7 +8,6 @@ import requests #Requests will be used for the VEC site, not utilised at this st
 tree = ET.parse('State2018MediaFileCandidates.xml') #Loads file
 root = tree.getroot() #Sets 'root' as the highest level of the XML file
 
-
 TagSlug = '{urn:oasis:names:tc:evs:schema:eml}' #This is pre-appended all nodes so saves space
 
 CandidateList = root.find(TagSlug+'CandidateList') #Goes from level 0 (root) to level 1 (CandidateList)
