@@ -1,57 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport"/>
-<title>KML Example - Google Fusion Tables</title>
-<style type="text/css">
-html, body, #googft-mapCanvas {
-  height: 300px;
-  margin: 0;
-  padding: 0;
-  width: 500px;
-}
-</style>
-
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3&amp;libraries=visualization&amp;key=AIzaSyDVXzYzDGWFWNNklAKiYImMIkIpwfhEyVE&amp;unused-google-fusiontables"></script>
-
-<script type="text/javascript">
-  function initialize() {
-    var isMobile = (navigator.userAgent.toLowerCase().indexOf('android') > -1) ||
-      (navigator.userAgent.match(/(iPod|iPhone|iPad|BlackBerry|Windows Phone|iemobile)/));
-    if (isMobile) {
-      var viewport = document.querySelector("meta[name=viewport]");
-      viewport.setAttribute('content', 'initial-scale=1.0, user-scalable=no');
-    }
-    var mapDiv = document.getElementById('googft-mapCanvas');
-    mapDiv.style.width = isMobile ? '100%' : '500px';
-    mapDiv.style.height = isMobile ? '100%' : '300px';
-    var map = new google.maps.Map(mapDiv, {
-      center: new google.maps.LatLng(-37.69519120409751, 144.68310972880158),
-      zoom: 8,
-      mapTypeId: google.maps.MapTypeId['ROADMAP']
-    });
-
-    layer = new google.maps.FusionTablesLayer({
-      map: map,
-      heatmap: { enabled: false },
-      query: {
-        select: "col2",
-        from: "1vIEPhgzB5yqi9P3FDvcat2g-VOvQmRUcc0c9oel2",
-        where: ""
-      },
-      options: {
-        styleId: 2,
-        templateId: 2
-      }
-    });
-
-  }
-
-  google.maps.event.addDomListener(window, 'load', initialize);
-</script>
+	<div>
+		<iframe width="360" height="371" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRdESbqY48fExLagg_KzkJXD3hZiC37iwxAxZd7SDp-gbOHPgKFjbFYJ_bl1Wn1M_z9rGoUvO1bUoIL/pubchart?oid=408343623&amp;format=interactive"></iframe>
+	</div>
 </head>
-
-<body>
-  <div id="googft-mapCanvas"></div>
-</body>
 </html>
